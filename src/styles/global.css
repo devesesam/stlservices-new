@@ -362,16 +362,14 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
 }
 
-.hero-content {
-  max-width: 550px;
-  position: relative;
-  z-index: 1;
+.hero .container {
+  padding-right: 50%;
 }
 
-@media (min-width: 1400px) {
-  .hero-content {
-    max-width: 680px;
-  }
+.hero-content {
+  max-width: 680px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -1094,6 +1092,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ---- Responsive ---- */
 @media (max-width: 1024px) {
+  .hero .container {
+    padding-right: var(--container-padding);
+  }
+
   .hero h1 {
     font-size: 2.6rem;
   }
