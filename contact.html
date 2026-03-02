@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Steve Thompson Limited</title>
+    <meta name="description"
+        content="Steve Thompson Limited offers expert forestry cleanup, roading, tree thinning, tree shearing, water tables, and machinery hire services across New Zealand.">
+    <meta property="og:title" content="Contact Steve Thompson Limited">
+    <meta property="og:description"
+        content="Get in touch with Steve Thompson Limited for forestry services, equipment hire, and more in Nelson, New Zealand.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle">
+                        Services
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="services/earthworks.html">Earthworks</a>
+                        <a href="services/forestry.html">Forestry</a>
+                        <a href="services/trucking.html">Trucking</a>
+                        <a href="services/firewood.html">Firewood</a>
+                        <a href="services/custom-projects.html">Custom Projects</a>
+                        <a href="services/motocross-tracks.html">Motocross Tracks</a>
+                    </div>
+                </div>
+                <a href="fleet.html">Fleet</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+
+            <a href="index.html" class="nav-logo">
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="currentColor">
+                        <rect x="4" y="48" width="56" height="6" rx="2" />
+                        <rect x="8" y="42" width="48" height="6" rx="1" />
+                        <rect x="32" y="20" width="22" height="22" rx="2" />
+                        <rect x="10" y="30" width="22" height="12" rx="2" />
+                        <path d="M30 24 L54 14 L56 14 L56 20 L32 20" stroke="currentColor" stroke-width="3"
+                            fill="none" />
+                    </g>
+                </svg>
+                Steve Thompson Limited
+            </a>
+
+            <div class="nav-actions">
+                <a href="mailto:steve@stlservices.co.nz" class="btn btn-primary">Email</a>
+                <a href="tel:0273674569" class="btn btn-outline">Call Steve</a>
+            </div>
+
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="contact-hero-grid">
+                <div class="fade-in">
+                    <h1>Steve Thompson Limited</h1>
+                    <h2>Get In Touch</h2>
+                    <p style="font-size: 1.1rem; opacity: 0.85; margin-bottom: 32px;">Contact us now to find out about
+                        how our services can benefit your project.</p>
+
+                    <div class="contact-info-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                        </svg>
+                        <div>
+                            <div style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 2px;">Call Steve</div>
+                            <a href="tel:0273674569" style="font-size: 1.4rem;">027 367 4569</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        <div>
+                            <div style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 2px;">Email Steve</div>
+                            <a href="mailto:steve@stlservices.co.nz">steve@stlservices.co.nz</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-hero-image fade-in fade-in-delay-2">
+                    <img src="images/contact-hero.jpg" alt="CAT excavators at work on a forestry site">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-form-wrapper fade-in">
+                <h2>Reach Out Today</h2>
+                <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 32px;">Use the contact form
+                    to get in touch. We are here to help with your equipment and machinery hiring needs.</p>
+
+                <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form">
+                    <input type="hidden" name="form-name" value="contact">
+                    <p style="display: none;">
+                        <label>Don't fill this out: <input name="bot-field"></label>
+                    </p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone (optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project..."
+                            required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-lg" id="contact-submit-btn">Send
+                            Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="currentColor">
+                                <rect x="4" y="48" width="56" height="6" rx="2" />
+                                <rect x="8" y="42" width="48" height="6" rx="1" />
+                                <rect x="32" y="20" width="22" height="22" rx="2" />
+                                <rect x="10" y="30" width="22" height="12" rx="2" />
+                                <path d="M30 24 L54 14 L56 14 L56 20 L32 20" stroke="currentColor" stroke-width="3"
+                                    fill="none" />
+                            </g>
+                        </svg>
+                        Steve Thompson Limited
+                    </div>
+                    <p class="footer-description">Your trusted partner in forestry solutions across New Zealand.
+                        Professional equipment, expert services, and a team that understands the demands of the
+                        landscape.</p>
+                </div>
+
+                <div>
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="services/earthworks.html">Earthworks</a>
+                        <a href="services/forestry.html">Forestry</a>
+                        <a href="services/trucking.html">Trucking</a>
+                        <a href="services/firewood.html">Firewood</a>
+                        <a href="fleet.html">Fleet</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Contact</h4>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                        </svg>
+                        <a href="tel:0273674569">027 367 4569</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        <a href="mailto:steve@stlservices.co.nz">steve@stlservices.co.nz</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                        <span>Nelson, New Zealand</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Steve Thompson Limited. All rights reserved.</span>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
