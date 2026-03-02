@@ -1,0 +1,58 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/images/transporting02.jpg';
+---
+
+<PageLayout
+  title="Trucking Services | Steve Thompson Limited"
+  description="Reliable trucking services for timber, gravel, firewood, and general cartage in Nelson and Tasman regions. Timely delivery by Steve Thompson Limited."
+  currentPath="/services/trucking"
+>
+  <!-- Service Hero -->
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-hero-grid">
+        <div class="fade-in">
+          <h1>Trucking</h1>
+          <p>We provide reliable and efficient trucking services for timber and gravel transport, as well as many other supplies. Our skilled team ensures timely delivery with minimal disruption to the natural environment.</p>
+          <p>Whether you need a one-off delivery or ongoing transport solutions, we've got the capability to keep your projects moving on schedule.</p>
+          <a href="/contact" class="btn btn-primary btn-lg">Get a Quote</a>
+        </div>
+        <div class="service-hero-image fade-in fade-in-delay-2">
+          <Image src={heroImage} alt="STL trucking and heavy equipment transport" width={600} height={450} format="webp" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details section-light">
+    <div class="container">
+      <div class="service-details-content fade-in">
+        <h2>Our Trucking Services</h2>
+        <p>Our fleet is well-maintained and ready to handle a variety of cartage needs across the Nelson, Tasman, and wider regions.</p>
+        <ul>
+          <li>Timber and log transport</li>
+          <li>Gravel and aggregate delivery</li>
+          <li>Firewood delivery</li>
+          <li>General cartage and freight</li>
+          <li>Site-to-site material transfer</li>
+          <li>Bulk material haulage</li>
+        </ul>
+        <p>We understand the importance of reliable logistics in keeping your projects on track. Count on us for professional, punctual, and safe transport every time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    title="Need Transport Solutions?"
+    description="Get in touch to arrange reliable trucking for your next project."
+    primaryText="Get a Quote"
+    primaryHref="/contact"
+    secondaryText="Call 027 367 4569"
+    secondaryHref="tel:0273674569"
+  />
+</PageLayout>

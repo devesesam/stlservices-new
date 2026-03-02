@@ -1,0 +1,169 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import GalleryItem from '../components/GalleryItem.astro';
+import CTASection from '../components/CTASection.astro';
+import { Image } from 'astro:assets';
+
+// Import images
+import heroImage from '../assets/images/bigclearing01.jpg';
+import earthworksImage from '../assets/images/roading03.jpg';
+import forestryImage from '../assets/images/bigclearing04.jpg';
+import truckingImage from '../assets/images/transporting01.jpg';
+import firewoodImage from '../assets/images/logsplitting07.jpg';
+import customImage from '../assets/images/treetopping03.jpg';
+import motocrossImage from '../assets/images/grading-raking01.jpg';
+import firewoodHighlightImage from '../assets/images/logsplitting01.jpg';
+import slip01 from '../assets/images/slip01.jpg';
+import slip02 from '../assets/images/slip02.jpg';
+import slip03 from '../assets/images/slip03.jpg';
+
+const services = [
+  {
+    href: '/services/earthworks',
+    title: 'Earthworks',
+    description: 'Efficient earthworks services in Nelson. Proper land preparation with top machinery to shape and stabilize terrain.',
+    image: earthworksImage,
+    imageAlt: 'Excavator building forestry access road',
+    delay: 'fade-in-delay-1'
+  },
+  {
+    href: '/services/forestry',
+    title: 'Forestry',
+    description: 'Expert forest clearing and renovation, ensuring safe and tidy environments while maintaining ecosystem balance.',
+    image: forestryImage,
+    imageAlt: 'Large-scale forestry clearing operation',
+    delay: 'fade-in-delay-2'
+  },
+  {
+    href: '/services/trucking',
+    title: 'Trucking',
+    description: 'Reliable trucking for timber, gravel, and supplies. Timely delivery with minimal environmental disruption.',
+    image: truckingImage,
+    imageAlt: 'STL branded Volvo truck transporting CAT excavator',
+    delay: 'fade-in-delay-3'
+  },
+  {
+    href: '/services/firewood',
+    title: 'Firewood',
+    description: "High-quality firewood sourced from sustainable forestry operations in Nelson. Perfect for heating and cooking.",
+    image: firewoodImage,
+    imageAlt: 'Premium quality split firewood',
+    delay: 'fade-in-delay-1'
+  },
+  {
+    href: '/services/custom-projects',
+    title: 'Custom Projects',
+    description: 'Specialised forestry tasks tailored to your needs — tree thinning, shearing, and more with the right tools and expertise.',
+    image: customImage,
+    imageAlt: 'Tree topping and custom forestry work',
+    delay: 'fade-in-delay-2'
+  },
+  {
+    href: '/services/motocross-tracks',
+    title: 'Motocross Tracks',
+    description: 'Design, build, and maintain superior motocross tracks. Safety and precision for an optimal riding experience.',
+    image: motocrossImage,
+    imageAlt: 'Land grading and terrain shaping for track construction',
+    delay: 'fade-in-delay-3'
+  }
+];
+
+const galleryImages = [
+  { image: slip01, alt: 'Road slip with fallen trees blocking access', delay: 'fade-in-delay-1' },
+  { image: slip02, alt: 'Slip damage on hillside requiring clearing', delay: 'fade-in-delay-2' },
+  { image: slip03, alt: 'Road slip clearing and restoration work', delay: 'fade-in-delay-3' }
+];
+---
+
+<PageLayout
+  title="Steve Thompson Limited | Forestry Solutions Nelson, New Zealand"
+  description="Find reliable equipment for projects in Nelson. Browse Steve Thompson Limited's construction, landscaping, heavy machinery, and power tools for hire today!"
+  ogTitle="Steve Thompson Limited - Forestry Solutions Nelson NZ"
+  ogDescription="Your trusted partner in forestry solutions across New Zealand. Equipment hire, earthworks, trucking, and more."
+  currentPath="/"
+>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content fade-in">
+        <h1>Your Trusted Partner in Forestry Solutions Across New Zealand</h1>
+        <p>At Steve Thompson Limited, we are committed to supporting forestry projects with high-quality equipment, professional services, and a dedicated team that understands the unique demands of New Zealand's landscapes. Whether you're managing a large-scale forestry operation, creating accessways, or sourcing firewood, we offer an extensive range of forestry services and equipment tailored to help you achieve your project goals efficiently and safely.</p>
+        <p>Get in touch today to discover how Steve Thompson Limited can support your next forestry project with expertise you can trust.</p>
+        <div class="hero-actions">
+          <a href="/contact" class="btn btn-primary btn-lg">Get In Touch</a>
+          <a href="#services" class="btn btn-outline-dark btn-lg">Our Services</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <Image src={heroImage} alt="Aerial view of CAT excavator working on forestry road in New Zealand" width={800} height={600} format="webp" />
+    </div>
+  </section>
+
+  <!-- Our Services Section -->
+  <section class="section section-dark" id="services">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Our Services</h2>
+        <p>Professional forestry and earthworks solutions across the Nelson region and beyond</p>
+      </div>
+
+      <div class="services-grid">
+        {services.map(service => (
+          <ServiceCard
+            href={service.href}
+            title={service.title}
+            description={service.description}
+            image={service.image}
+            imageAlt={service.imageAlt}
+            delayClass={service.delay}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Firewood Highlight -->
+  <section class="highlight-section" id="firewood-highlight">
+    <div class="container">
+      <div class="highlight-grid">
+        <div class="highlight-content fade-in">
+          <h2>The Best Firewood in Nelson</h2>
+          <p>We provide high-quality firewood to keep your home warm through the cooler months. Our firewood is carefully selected and sourced from sustainable forestry operations in the Nelson region.</p>
+          <p>Whether you need a small load for your fireplace or a bulk delivery for the season, we've got you covered with competitive pricing and reliable delivery straight to your door.</p>
+          <a href="/services/firewood" class="btn btn-outline-dark btn-lg">Learn More</a>
+        </div>
+        <div class="highlight-image fade-in fade-in-delay-2">
+          <Image src={firewoodHighlightImage} alt="Excavator with splitter processing firewood from logs" width={600} height={450} format="webp" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery / Road Slips -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="gallery-header fade-in">
+        <h2>Precision and Professionalism</h2>
+        <p>Clearing Road Slips</p>
+      </div>
+
+      <div class="gallery-grid">
+        {galleryImages.map(item => (
+          <GalleryItem image={item.image} alt={item.alt} delayClass={item.delay} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CTASection
+    title="Ready to Get Started?"
+    description="Contact Steve today to discuss your next project and get a free quote."
+    primaryText="Get a Quote"
+    primaryHref="/contact"
+    secondaryText="Call 027 367 4569"
+    secondaryHref="tel:0273674569"
+  />
+</PageLayout>

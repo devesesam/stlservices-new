@@ -1,0 +1,99 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import FleetCard from '../components/FleetCard.astro';
+import CTASection from '../components/CTASection.astro';
+
+// Import images
+import excavatorImage from '../assets/images/general02.jpg';
+import forestryExcavatorImage from '../assets/images/bigclearing07.jpg';
+import truckImage from '../assets/images/transporting01.jpg';
+import bulldozerImage from '../assets/images/grading-raking02.jpg';
+import skidderImage from '../assets/images/skidsite01.jpg';
+import splitterImage from '../assets/images/logsplitting01.jpg';
+
+const fleetItems = [
+  {
+    title: 'CAT Excavator',
+    description: 'Heavy-duty excavator ideal for earthworks, forestry clearing, and land preparation. Available for hire with experienced operators.',
+    image: excavatorImage,
+    imageAlt: 'CAT Excavator on forestry site',
+    delay: 'fade-in-delay-1'
+  },
+  {
+    title: 'Forestry Excavator',
+    description: 'Specialised excavator fitted with forestry mulching head for efficient land clearing and vegetation management.',
+    image: forestryExcavatorImage,
+    imageAlt: 'Forestry excavator with mulching head',
+    delay: 'fade-in-delay-2'
+  },
+  {
+    title: 'Transport Truck',
+    description: 'Reliable trucking for timber, gravel, firewood delivery and general cartage across the Nelson and Tasman regions.',
+    image: truckImage,
+    imageAlt: 'STL Transport Truck with excavator',
+    delay: 'fade-in-delay-3'
+  },
+  {
+    title: 'Bulldozer',
+    description: 'Powerful bulldozer for roading, site preparation, and large-scale earthmoving projects.',
+    image: bulldozerImage,
+    imageAlt: 'Grading and earthmoving equipment',
+    delay: 'fade-in-delay-1'
+  },
+  {
+    title: 'Log Skidder',
+    description: 'Purpose-built log skidder for efficient timber extraction from forestry operations across challenging terrain.',
+    image: skidderImage,
+    imageAlt: 'Log skidder at skid site',
+    delay: 'fade-in-delay-2'
+  },
+  {
+    title: 'Wood Splitter',
+    description: 'Industrial wood splitter for high-volume firewood processing and production.',
+    image: splitterImage,
+    imageAlt: 'Industrial wood splitting equipment',
+    delay: 'fade-in-delay-3'
+  }
+];
+---
+
+<PageLayout
+  title="Our Fleet | Steve Thompson Limited"
+  description="Browse Steve Thompson Limited's fleet of professional forestry and earthworks machinery available for hire in Nelson, New Zealand."
+  ogTitle="Fleet - Steve Thompson Limited"
+  ogDescription="Professional forestry and earthworks machinery available for hire in Nelson, New Zealand."
+  currentPath="/fleet"
+>
+  <!-- Fleet Hero -->
+  <section class="fleet-hero">
+    <div class="container fade-in">
+      <h1>Our Fleet</h1>
+      <p>Browse our professional fleet of forestry and earthworks machinery. We maintain top-quality equipment to ensure safe, efficient, and reliable service on every project.</p>
+    </div>
+  </section>
+
+  <!-- Fleet Grid -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="fleet-grid">
+        {fleetItems.map(item => (
+          <FleetCard
+            title={item.title}
+            description={item.description}
+            image={item.image}
+            imageAlt={item.imageAlt}
+            delayClass={item.delay}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    title="Need Equipment for Your Project?"
+    description="Get in touch to discuss machinery hire and find the right equipment for your job."
+    primaryText="Contact Us"
+    primaryHref="/contact"
+  />
+</PageLayout>

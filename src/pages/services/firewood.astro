@@ -1,0 +1,58 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/images/logsplitting03.jpg';
+---
+
+<PageLayout
+  title="Firewood Supply | Steve Thompson Limited"
+  description="High-quality firewood in Nelson from sustainable forestry operations. Delivery available. Keep your home warm with Steve Thompson Limited's premium firewood."
+  currentPath="/services/firewood"
+>
+  <!-- Service Hero -->
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-hero-grid">
+        <div class="fade-in">
+          <h1>Firewood</h1>
+          <p>We provide high-quality firewood to keep your home warm. Our firewood is carefully selected and sourced from sustainable forestry operations in Nelson. Perfect for heating and cooking.</p>
+          <p>Whether you need a small load for your fireplace or a bulk delivery for the season, we deliver straight to your door with competitive pricing.</p>
+          <a href="/contact" class="btn btn-primary btn-lg">Order Firewood</a>
+        </div>
+        <div class="service-hero-image fade-in fade-in-delay-2">
+          <Image src={heroImage} alt="Firewood processing and log splitting operation" width={600} height={450} format="webp" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details section-light">
+    <div class="container">
+      <div class="service-details-content fade-in">
+        <h2>Quality Firewood, Delivered</h2>
+        <p>Our firewood is sourced directly from our own forestry operations, ensuring high quality and sustainability. We offer a range of wood types and quantities to suit your needs.</p>
+        <ul>
+          <li>Seasoned hardwood and softwood available</li>
+          <li>Split and ready to burn</li>
+          <li>Small loads to bulk deliveries</li>
+          <li>Competitive pricing</li>
+          <li>Delivery across the Nelson and Tasman regions</li>
+          <li>Sustainably sourced from local forestry operations</li>
+        </ul>
+        <p>Don't wait until winter hits — order your firewood today and be prepared for the cooler months ahead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    title="Order Your Firewood Today"
+    description="Contact Steve to arrange your firewood delivery."
+    primaryText="Order Now"
+    primaryHref="/contact"
+    secondaryText="Call 027 367 4569"
+    secondaryHref="tel:0273674569"
+  />
+</PageLayout>

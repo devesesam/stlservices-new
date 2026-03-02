@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  delayClass?: string;
+}
+
+const { title, description, image, imageAlt, delayClass = '' } = Astro.props;
+---
+
+<div class:list={['fleet-card', 'fade-in', delayClass]}>
+  <div class="fleet-card-image">
+    <Image src={image} alt={imageAlt} width={400} height={220} format="webp" />
+  </div>
+  <div class="fleet-card-body">
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+</div>

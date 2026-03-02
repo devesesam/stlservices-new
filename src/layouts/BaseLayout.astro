@@ -1,0 +1,54 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+}
+
+const {
+  title,
+  description = "Find reliable equipment for projects in Nelson. Browse Steve Thompson Limited's construction, landscaping, heavy machinery, and power tools for hire today!",
+  ogTitle,
+  ogDescription
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  {ogTitle && <meta property="og:title" content={ogTitle}>}
+  {ogDescription && <meta property="og:description" content={ogDescription}>}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stlservices.co.nz">
+</head>
+<body>
+  <slot />
+
+  <script>
+    // Scroll animations
+    const fadeElements = document.querySelectorAll('.fade-in');
+    if (fadeElements.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      fadeElements.forEach(el => observer.observe(el));
+    }
+  </script>
+</body>
+</html>

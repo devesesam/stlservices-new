@@ -1,0 +1,59 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/images/bigclearing02.jpg';
+---
+
+<PageLayout
+  title="Forestry Services | Steve Thompson Limited"
+  description="Expert forestry clearing, tree management, and land renovation services in Nelson, New Zealand. Safe, efficient, and environmentally responsible."
+  currentPath="/services/forestry"
+>
+  <!-- Service Hero -->
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-hero-grid">
+        <div class="fade-in">
+          <h1>Forestry</h1>
+          <p>Our team clears and renovates forest areas efficiently, ensuring safe and tidy environments. We handle debris and maintain balance in ecosystems with our expert approach to forestry management.</p>
+          <p>From large-scale harvesting support to selective thinning and environmental restoration, we bring the right expertise and equipment to every forestry operation.</p>
+          <a href="/contact" class="btn btn-primary btn-lg">Get a Quote</a>
+        </div>
+        <div class="service-hero-image fade-in fade-in-delay-2">
+          <Image src={heroImage} alt="Large-scale forestry clearing operation in New Zealand" width={600} height={450} format="webp" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details section-light">
+    <div class="container">
+      <div class="service-details-content fade-in">
+        <h2>Our Forestry Services</h2>
+        <p>With years of experience working in New Zealand's diverse forestry environments, we deliver reliable and professional forestry services tailored to the unique demands of each site.</p>
+        <ul>
+          <li>Forest clearing and land conversion</li>
+          <li>Tree thinning and selective harvesting</li>
+          <li>Skid site preparation and maintenance</li>
+          <li>Landing construction</li>
+          <li>Slash management and debris cleanup</li>
+          <li>Accessway and haul road construction</li>
+          <li>Erosion control and environmental management</li>
+        </ul>
+        <p>We pride ourselves on working safely and sustainably, minimising environmental impact while delivering outstanding results for our clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    title="Need Forestry Services?"
+    description="Contact Steve today to discuss your forestry project requirements."
+    primaryText="Get a Quote"
+    primaryHref="/contact"
+    secondaryText="Call 027 367 4569"
+    secondaryHref="tel:0273674569"
+  />
+</PageLayout>

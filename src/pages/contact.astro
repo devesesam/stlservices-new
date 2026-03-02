@@ -1,0 +1,86 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import IconPhone from '../components/icons/IconPhone.astro';
+import IconEmail from '../components/icons/IconEmail.astro';
+import { Image } from 'astro:assets';
+import contactImage from '../assets/images/general02.jpg';
+---
+
+<PageLayout
+  title="Contact Us | Steve Thompson Limited"
+  description="Steve Thompson Limited offers expert forestry cleanup, roading, tree thinning, tree shearing, water tables, and machinery hire services across New Zealand."
+  ogTitle="Contact Steve Thompson Limited"
+  ogDescription="Get in touch with Steve Thompson Limited for forestry services, equipment hire, and more in Nelson, New Zealand."
+  currentPath="/contact"
+>
+  <!-- Contact Hero -->
+  <section class="contact-hero">
+    <div class="container">
+      <div class="contact-hero-grid">
+        <div class="fade-in">
+          <h1>Steve Thompson Limited</h1>
+          <h2>Get In Touch</h2>
+          <p style="font-size: 1.1rem; opacity: 0.85; margin-bottom: 32px;">Contact us now to find out about how our services can benefit your project.</p>
+
+          <div class="contact-info-item">
+            <IconPhone />
+            <div>
+              <div style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 2px;">Call Steve</div>
+              <a href="tel:0273674569" style="font-size: 1.4rem;">027 367 4569</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <IconEmail />
+            <div>
+              <div style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 2px;">Email Steve</div>
+              <a href="mailto:steve@stlservices.co.nz">steve@stlservices.co.nz</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-hero-image fade-in fade-in-delay-2">
+          <Image src={contactImage} alt="CAT excavator at work on a forestry site in New Zealand" width={600} height={450} format="webp" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-form-section">
+    <div class="container">
+      <div class="contact-form-wrapper fade-in">
+        <h2>Reach Out Today</h2>
+        <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 32px;">Use the contact form to get in touch. We are here to help with your equipment and machinery hiring needs.</p>
+
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display: none;">
+            <label>Don't fill this out: <input name="bot-field"></label>
+          </p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</PageLayout>

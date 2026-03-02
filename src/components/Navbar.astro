@@ -1,0 +1,121 @@
+---
+import Logo from './icons/Logo.astro';
+import IconChevron from './icons/IconChevron.astro';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const services = [
+  { href: '/services/earthworks', label: 'Earthworks' },
+  { href: '/services/forestry', label: 'Forestry' },
+  { href: '/services/trucking', label: 'Trucking' },
+  { href: '/services/firewood', label: 'Firewood' },
+  { href: '/services/custom-projects', label: 'Custom Projects' },
+  { href: '/services/motocross-tracks', label: 'Motocross Tracks' },
+];
+
+const isServicePage = currentPath.startsWith('/services/');
+---
+
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <div class="nav-links" id="nav-links">
+      <a href="/" class:list={[{ active: currentPath === '/' }]}>Home</a>
+      <div class="nav-dropdown">
+        <a href="#" class="nav-dropdown-toggle">
+          Services
+          <IconChevron />
+        </a>
+        <div class="nav-dropdown-menu">
+          {services.map(service => (
+            <a
+              href={service.href}
+              class:list={[{ active: currentPath === service.href }]}
+            >
+              {service.label}
+            </a>
+          ))}
+        </div>
+      </div>
+      <a href="/fleet" class:list={[{ active: currentPath === '/fleet' }]}>Fleet</a>
+      <a href="/contact" class:list={[{ active: currentPath === '/contact' }]}>Contact</a>
+    </div>
+
+    <a href="/" class="nav-logo">
+      <Logo />
+      Steve Thompson Limited
+    </a>
+
+    <div class="nav-actions">
+      <a href="mailto:steve@stlservices.co.nz" class="btn btn-primary">Email</a>
+      <a href="tel:0273674569" class="btn btn-outline">Call Steve</a>
+    </div>
+
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  }
+
+  // Mobile menu
+  const toggle = document.querySelector('.mobile-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Close menu on link click
+    navLinks.querySelectorAll('a:not(.nav-dropdown-toggle)').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('active');
+        navLinks.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // Dropdowns
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  dropdowns.forEach(dropdown => {
+    const toggleEl = dropdown.querySelector('.nav-dropdown-toggle');
+    if (toggleEl) {
+      toggleEl.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest('.nav-dropdown')) {
+      dropdowns.forEach(d => d.classList.remove('open'));
+    }
+  });
+</script>

@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  delayClass?: string;
+}
+
+const { href, title, description, image, imageAlt, delayClass = '' } = Astro.props;
+---
+
+<a href={href} class:list={['service-card', 'fade-in', delayClass]}>
+  <div class="service-card-image">
+    <Image src={image} alt={imageAlt} width={400} height={200} format="webp" />
+  </div>
+  <div class="service-card-body">
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <span class="btn btn-primary">More Info</span>
+  </div>
+</a>

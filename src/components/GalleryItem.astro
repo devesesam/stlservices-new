@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+  delayClass?: string;
+}
+
+const { image, alt, delayClass = '' } = Astro.props;
+---
+
+<div class:list={['gallery-item', 'fade-in', delayClass]}>
+  <Image src={image} alt={alt} width={400} height={300} format="webp" />
+</div>

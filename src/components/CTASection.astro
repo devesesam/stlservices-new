@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  primaryText?: string;
+  primaryHref?: string;
+  secondaryText?: string;
+  secondaryHref?: string;
+}
+
+const {
+  title,
+  description,
+  primaryText = 'Get a Quote',
+  primaryHref = '/contact',
+  secondaryText,
+  secondaryHref
+} = Astro.props;
+---
+
+<section class="service-cta">
+  <div class="container fade-in">
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href={primaryHref} class="btn btn-primary btn-lg">{primaryText}</a>
+      {secondaryText && secondaryHref && (
+        <a href={secondaryHref} class="btn btn-outline btn-lg">{secondaryText}</a>
+      )}
+    </div>
+  </div>
+</section>

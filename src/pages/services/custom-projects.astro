@@ -1,0 +1,60 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/images/thinning01.jpg';
+---
+
+<PageLayout
+  title="Custom Projects | Steve Thompson Limited"
+  description="Specialised forestry tasks tailored to your needs. Tree thinning, shearing, and custom projects by Steve Thompson Limited in Nelson, New Zealand."
+  currentPath="/services/custom-projects"
+>
+  <!-- Service Hero -->
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-hero-grid">
+        <div class="fade-in">
+          <h1>Custom Projects</h1>
+          <p>We handle specialised forestry tasks tailored to your needs. Whether it's tree thinning, shearing, or any other specific project, our team in Nelson is equipped with the right tools and expertise.</p>
+          <p>No two projects are the same, and we pride ourselves on adapting our services to meet the unique requirements of each client and site.</p>
+          <a href="/contact" class="btn btn-primary btn-lg">Discuss Your Project</a>
+        </div>
+        <div class="service-hero-image fade-in fade-in-delay-2">
+          <Image src={heroImage} alt="Tree thinning and custom forestry project" width={600} height={450} format="webp" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details section-light">
+    <div class="container">
+      <div class="service-details-content fade-in">
+        <h2>Tailored to Your Needs</h2>
+        <p>Our custom projects service covers a broad range of specialised work that goes beyond standard earthworks and forestry. If you have a unique challenge, chances are we can help.</p>
+        <ul>
+          <li>Tree thinning and selective removal</li>
+          <li>Tree shearing operations</li>
+          <li>Vegetation management</li>
+          <li>Water table and drainage solutions</li>
+          <li>Accessway and track construction</li>
+          <li>Land clearing for development</li>
+          <li>Emergency response and road slip clearing</li>
+          <li>Environmental restoration projects</li>
+        </ul>
+        <p>Talk to Steve about your project and we'll put together a plan that works for your needs and budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    title="Have a Unique Project in Mind?"
+    description="Let's discuss how we can make it happen."
+    primaryText="Get in Touch"
+    primaryHref="/contact"
+    secondaryText="Call 027 367 4569"
+    secondaryHref="tel:0273674569"
+  />
+</PageLayout>

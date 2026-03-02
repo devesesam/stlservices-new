@@ -1,0 +1,59 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/images/grading-raking03.jpg';
+---
+
+<PageLayout
+  title="Motocross Tracks | Steve Thompson Limited"
+  description="Professional motocross track design, construction, and maintenance in Nelson, New Zealand. Custom tracks built for safety and excitement by Steve Thompson Limited."
+  currentPath="/services/motocross-tracks"
+>
+  <!-- Service Hero -->
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-hero-grid">
+        <div class="fade-in">
+          <h1>Motocross Tracks</h1>
+          <p>We design, build, and maintain superior motocross tracks tailored to individual needs. Our team ensures each layout offers exciting features, focusing on safety and precision for an optimal riding experience.</p>
+          <p>From backyard practice tracks to competition-grade circuits, Steve Thompson Limited has the earthmoving expertise to bring your vision to life.</p>
+          <a href="/contact" class="btn btn-primary btn-lg">Plan Your Track</a>
+        </div>
+        <div class="service-hero-image fade-in fade-in-delay-2">
+          <Image src={heroImage} alt="Land grading and terrain shaping for track construction" width={600} height={450} format="webp" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details section-light">
+    <div class="container">
+      <div class="service-details-content fade-in">
+        <h2>Track Design & Construction</h2>
+        <p>With our experience in earthworks and land shaping, we can create motocross tracks that deliver an exceptional riding experience while prioritising rider safety.</p>
+        <ul>
+          <li>Custom track design and layout planning</li>
+          <li>Jumps, berms, and tabletops</li>
+          <li>Drainage and water management</li>
+          <li>Track surface preparation</li>
+          <li>Ongoing maintenance and modifications</li>
+          <li>Start gates and spectator areas</li>
+          <li>Environmental compliance and consents support</li>
+        </ul>
+        <p>Whether you're a private landowner wanting a practice track or a club looking for a full competition circuit, we can design and build exactly what you need.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    title="Ready to Build Your Dream Track?"
+    description="Let's talk about your motocross track project."
+    primaryText="Get in Touch"
+    primaryHref="/contact"
+    secondaryText="Call 027 367 4569"
+    secondaryHref="tel:0273674569"
+  />
+</PageLayout>

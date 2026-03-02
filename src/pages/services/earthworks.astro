@@ -1,0 +1,59 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/images/roading05.jpg';
+---
+
+<PageLayout
+  title="Earthworks Services | Steve Thompson Limited"
+  description="Professional earthworks services in Nelson. Land preparation, site clearing, roading, and terrain shaping with top-quality machinery by Steve Thompson Limited."
+  currentPath="/services/earthworks"
+>
+  <!-- Service Hero -->
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-hero-grid">
+        <div class="fade-in">
+          <h1>Earthworks</h1>
+          <p>We provide efficient earthworks services across the Nelson region. Our experienced team ensures proper land preparation for your projects, utilising top machinery to shape and stabilize the terrain for optimal results.</p>
+          <p>From site preparation to roading and drainage, Steve Thompson Limited delivers professional earthworks solutions tailored to your project requirements.</p>
+          <a href="/contact" class="btn btn-primary btn-lg">Get a Quote</a>
+        </div>
+        <div class="service-hero-image fade-in fade-in-delay-2">
+          <Image src={heroImage} alt="Excavator performing earthworks and road building" width={600} height={450} format="webp" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details section-light">
+    <div class="container">
+      <div class="service-details-content fade-in">
+        <h2>What We Offer</h2>
+        <p>Our comprehensive earthworks services cover a wide range of applications, from small residential projects to large-scale commercial and forestry developments. We bring the right equipment and expertise to every job.</p>
+        <ul>
+          <li>Site preparation and clearing</li>
+          <li>Road construction and maintenance</li>
+          <li>Drainage and water table management</li>
+          <li>Land contouring and levelling</li>
+          <li>Foundation excavation</li>
+          <li>Retaining wall construction</li>
+          <li>Driveway and accessway creation</li>
+        </ul>
+        <p>With our fleet of well-maintained machinery and experienced operators, we ensure every project is completed to the highest standard, on time and within budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    title="Ready to Start Your Earthworks Project?"
+    description="Contact Steve today for a free consultation and quote."
+    primaryText="Get a Quote"
+    primaryHref="/contact"
+    secondaryText="Call 027 367 4569"
+    secondaryHref="tel:0273674569"
+  />
+</PageLayout>
