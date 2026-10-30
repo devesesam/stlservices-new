@@ -1,61 +1,42 @@
 ---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
 import { site } from '../../data/site';
-import PageLayout from '../../layouts/PageLayout.astro';
-import CTASection from '../../components/CTASection.astro';
-import { Image } from 'astro:assets';
-import { fitWidths, heroWidths } from '../../data/images';
 import heroImage from '../../assets/images/roading05.jpg';
+import crossingBefore from '../../assets/images/crossing01_before.jpg';
+import crossingAfter from '../../assets/images/crossing02_after.jpg';
+import dam from '../../assets/images/dam01.jpg';
 ---
 
-<PageLayout
-  title="Earthworks Services | Steve Thompson Limited"
-  description="Professional earthworks services in Nelson. Land preparation, site clearing, roading, and terrain shaping with top-quality machinery by Steve Thompson Limited."
-  currentPath="/services/earthworks"
->
-  <!-- Service Hero -->
-  <section class="service-hero">
-    <div class="container">
-      <div class="service-hero-grid">
-        <div>
-          <h1>Earthworks</h1>
-          <p>We provide efficient earthworks services across the Nelson region. Our experienced team ensures proper land preparation for your projects, utilising top machinery to shape and stabilize the terrain for optimal results.</p>
-          <p>From site preparation to roading and drainage, Steve Thompson Limited delivers professional earthworks solutions tailored to your project requirements.</p>
-          <a href="/contact/?service=earthworks" class="btn btn-primary btn-lg">Get a Quote</a>
-        </div>
-        <div class="service-hero-image">
-          <Image src={heroImage} alt="Excavator performing earthworks and road building" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Details -->
-  <section class="service-details section-light">
-    <div class="container">
-      <div class="service-details-content fade-in">
-        <h2>What We Offer</h2>
-        <p>Our comprehensive earthworks services cover a wide range of applications, from small residential projects to large-scale commercial and forestry developments. We bring the right equipment and expertise to every job.</p>
-        <ul>
-          <li>Site preparation and clearing</li>
-          <li>Road construction and maintenance</li>
-          <li>Drainage and water table management</li>
-          <li>Land contouring and levelling</li>
-          <li>Foundation excavation</li>
-          <li>Retaining wall construction</li>
-          <li>Driveway and accessway creation</li>
-        </ul>
-        <p>With our fleet of well-maintained machinery and experienced operators, we ensure every project is completed to the highest standard, on time and within budget.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <CTASection
-    title="Ready to Start Your Earthworks Project?"
-    description="Contact Steve today for a free consultation and quote."
-    primaryText="Get a Quote"
-    primaryHref="/contact/?service=earthworks"
-    secondaryText={`Call ${site.phone.display}`}
-    secondaryHref={site.phone.href}
-  />
-</PageLayout>
+<ServiceLayout
+  title="Earthworks in Nelson & Tasman | Steve Thompson Limited"
+  description={`Site preparation, roading, drainage, land contouring and accessways around ${site.area}. Call Steve Thompson Limited on ${site.phone.display}.`}
+  slug="earthworks"
+  heading="Earthworks"
+  intro={[
+    `Site preparation, roads, drainage and land shaping around ${site.area}, done with our own machinery.`,
+    "Send a few details about the site and we'll come back to you with a plan and a price.",
+  ]}
+  image={heroImage}
+  imageAlt="Excavator performing earthworks and road building"
+  detailsHeading="What we do"
+  detailsIntro="From small residential jobs to large forestry developments, we bring the machine and the operator."
+  items={[
+    'Site preparation and clearing',
+    'Road construction and maintenance',
+    'Drainage and water tables',
+    'Land contouring and levelling',
+    'Stream crossings and farm dams',
+    'Foundation excavation',
+    'Driveways and accessways',
+  ]}
+  gallery={{
+    heading: 'From our earthworks jobs',
+    photos: [
+      { image: crossingBefore, alt: 'Overgrown gully before a crossing was built', caption: 'Stream crossing: before' },
+      { image: crossingAfter, alt: 'New crossing built across the gully', caption: 'Stream crossing: after' },
+      { image: dam, alt: 'Excavated farm dam with machinery on the bank', caption: 'Dam construction' },
+    ],
+  }}
+  ctaTitle="Planning some earthworks?"
+  ctaDescription="Call Steve, or send a few details about the site for a quote."
+/>

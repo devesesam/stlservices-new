@@ -1,60 +1,31 @@
 ---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
 import { site } from '../../data/site';
-import PageLayout from '../../layouts/PageLayout.astro';
-import CTASection from '../../components/CTASection.astro';
-import { Image } from 'astro:assets';
-import { fitWidths, heroWidths } from '../../data/images';
 import heroImage from '../../assets/images/transporting02.jpg';
 ---
 
-<PageLayout
-  title="Trucking Services | Steve Thompson Limited"
-  description="Reliable trucking services for timber, gravel, firewood, and general cartage in Nelson and Tasman regions. Timely delivery by Steve Thompson Limited."
-  currentPath="/services/trucking"
->
-  <!-- Service Hero -->
-  <section class="service-hero">
-    <div class="container">
-      <div class="service-hero-grid">
-        <div>
-          <h1>Trucking</h1>
-          <p>We provide reliable and efficient trucking services for timber and gravel transport, as well as many other supplies. Our skilled team ensures timely delivery with minimal disruption to the natural environment.</p>
-          <p>Whether you need a one-off delivery or ongoing transport solutions, we've got the capability to keep your projects moving on schedule.</p>
-          <a href="/contact/?service=trucking" class="btn btn-primary btn-lg">Get a Quote</a>
-        </div>
-        <div class="service-hero-image">
-          <Image src={heroImage} alt="STL trucking and heavy equipment transport" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Details -->
-  <section class="service-details section-light">
-    <div class="container">
-      <div class="service-details-content fade-in">
-        <h2>Our Trucking Services</h2>
-        <p>Our fleet is well-maintained and ready to handle a variety of cartage needs across the Nelson, Tasman, and wider regions.</p>
-        <ul>
-          <li>Timber and log transport</li>
-          <li>Gravel and aggregate delivery</li>
-          <li>Firewood delivery</li>
-          <li>General cartage and freight</li>
-          <li>Site-to-site material transfer</li>
-          <li>Bulk material haulage</li>
-        </ul>
-        <p>We understand the importance of reliable logistics in keeping your projects on track. Count on us for professional, punctual, and safe transport every time.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <CTASection
-    title="Need Transport Solutions?"
-    description="Get in touch to arrange reliable trucking for your next project."
-    primaryText="Get a Quote"
-    primaryHref="/contact/?service=trucking"
-    secondaryText={`Call ${site.phone.display}`}
-    secondaryHref={site.phone.href}
-  />
-</PageLayout>
+<ServiceLayout
+  title="Trucking & Cartage in Nelson | Steve Thompson Limited"
+  description={`Cartage for timber, gravel, firewood and machinery around ${site.area}. Call Steve Thompson Limited on ${site.phone.display}.`}
+  slug="trucking"
+  heading="Trucking"
+  intro={[
+    `Cartage for timber, logs, gravel, firewood and machinery around ${site.area}.`,
+    'One-off loads or regular runs. Tell us what needs moving and where.',
+  ]}
+  image={heroImage}
+  imageAlt="STL truck transporting heavy equipment"
+  detailsHeading="What we cart"
+  detailsIntro="Our trucks handle a range of cartage jobs, including moving our own machines to site."
+  items={[
+    'Timber and log transport',
+    'Gravel and aggregate delivery',
+    'Firewood delivery',
+    'Machinery transport',
+    'General cartage and freight',
+    'Site-to-site material transfer',
+    'Bulk material haulage',
+  ]}
+  ctaTitle="Need something moved?"
+  ctaDescription="Call Steve, or send the details of the load for a quote."
+/>

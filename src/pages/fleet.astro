@@ -1,57 +1,58 @@
 ---
+import { site } from '../data/site';
 import PageLayout from '../layouts/PageLayout.astro';
 import FleetCard from '../components/FleetCard.astro';
 import CTASection from '../components/CTASection.astro';
 
 // Import images
-import excavatorImage from '../assets/images/general02.jpg';
-import forestryExcavatorImage from '../assets/images/bigclearing07.jpg';
+import excavatorImage from '../assets/images/general10.jpg';
+import forestryExcavatorImage from '../assets/images/thinning01.jpg';
 import truckImage from '../assets/images/transporting01.jpg';
-import bulldozerImage from '../assets/images/grading-raking02.jpg';
+import bulldozerImage from '../assets/images/general08.jpg';
 import skidderImage from '../assets/images/skidsite01.jpg';
 import splitterImage from '../assets/images/logsplitting01.jpg';
 
 const fleetItems = [
   {
     title: 'CAT Excavator',
-    description: 'Heavy-duty excavator ideal for earthworks, forestry clearing, and land preparation. Available for hire with experienced operators.',
+    description: 'CAT 313F excavator for earthworks, forestry clearing and land preparation. Available with an experienced operator.',
     image: excavatorImage,
-    imageAlt: 'CAT Excavator on forestry site',
+    imageAlt: 'CAT 313F excavator with a bulldozer working behind it',
     delay: 'fade-in-delay-1'
   },
   {
     title: 'Forestry Excavator',
-    description: 'Specialised excavator fitted with forestry mulching head for efficient land clearing and vegetation management.',
+    description: 'Excavator fitted with a forestry head for tree thinning, shearing and clearing.',
     image: forestryExcavatorImage,
-    imageAlt: 'Forestry excavator with mulching head',
+    imageAlt: 'CAT excavator with a forestry head working in young pine trees',
     delay: 'fade-in-delay-2'
   },
   {
     title: 'Transport Truck',
-    description: 'Reliable trucking for timber, gravel, firewood delivery and general cartage across the Nelson and Tasman regions.',
+    description: `Our own truck for timber, gravel, firewood and machinery cartage around ${site.area}.`,
     image: truckImage,
-    imageAlt: 'STL Transport Truck with excavator',
+    imageAlt: 'STL branded Volvo truck carrying a CAT excavator',
     delay: 'fade-in-delay-3'
   },
   {
     title: 'Bulldozer',
-    description: 'Powerful bulldozer for roading, site preparation, and large-scale earthmoving projects.',
+    description: 'CAT bulldozer with a ripper for roading, site preparation and large earthmoving jobs.',
     image: bulldozerImage,
-    imageAlt: 'Grading and earthmoving equipment',
+    imageAlt: 'CAT bulldozer with a rear ripper parked beside a CAT excavator',
     delay: 'fade-in-delay-1'
   },
   {
     title: 'Log Skidder',
-    description: 'Purpose-built log skidder for efficient timber extraction from forestry operations across challenging terrain.',
+    description: 'Log skidder for timber extraction on forestry blocks and steep terrain.',
     image: skidderImage,
-    imageAlt: 'Log skidder at skid site',
+    imageAlt: 'Skid site on a forestry block',
     delay: 'fade-in-delay-2'
   },
   {
     title: 'Wood Splitter',
-    description: 'Industrial wood splitter for high-volume firewood processing and production.',
+    description: 'Excavator-mounted wood splitter for processing firewood in volume.',
     image: splitterImage,
-    imageAlt: 'Industrial wood splitting equipment',
+    imageAlt: 'Excavator with a splitter attachment processing logs into firewood',
     delay: 'fade-in-delay-3'
   }
 ];
@@ -59,16 +60,14 @@ const fleetItems = [
 
 <PageLayout
   title="Our Fleet | Steve Thompson Limited"
-  description="Browse Steve Thompson Limited's fleet of professional forestry and earthworks machinery available for hire in Nelson, New Zealand."
-  ogTitle="Fleet - Steve Thompson Limited"
-  ogDescription="Professional forestry and earthworks machinery available for hire in Nelson, New Zealand."
-  currentPath="/fleet"
+  description={`The machinery Steve Thompson Limited runs around ${site.area}: excavators, a bulldozer, a truck, a log skidder and a wood splitter, with operators.`}
+  currentPath="/fleet/"
 >
   <!-- Fleet Hero -->
   <section class="fleet-hero">
     <div class="container">
       <h1>Our Fleet</h1>
-      <p>Browse our professional fleet of forestry and earthworks machinery. We maintain top-quality equipment to ensure safe, efficient, and reliable service on every project.</p>
+      <p>The machines we bring to the job. Available with experienced operators.</p>
     </div>
   </section>
 
@@ -91,9 +90,7 @@ const fleetItems = [
 
   <!-- CTA -->
   <CTASection
-    title="Need Equipment for Your Project?"
-    description="Get in touch to discuss machinery hire and find the right equipment for your job."
-    primaryText="Contact Us"
-    primaryHref="/contact/"
+    title="Need a machine for your job?"
+    description="Tell us about the job and we'll match the right machine and operator."
   />
 </PageLayout>

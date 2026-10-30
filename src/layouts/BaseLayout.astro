@@ -15,7 +15,7 @@ interface Props {
 
 const {
   title,
-  description = "Find reliable equipment for projects in Nelson. Browse Steve Thompson Limited's construction, landscaping, heavy machinery, and power tools for hire today!",
+  description = `Forestry, earthworks, trucking and firewood around ${site.area} from Steve Thompson Limited.`,
   ogTitle = title,
   ogDescription = description,
   ogImage = defaultOgImage,
@@ -39,7 +39,7 @@ const business = {
     addressLocality: 'Nelson',
     addressCountry: 'NZ',
   },
-  areaServed: 'Nelson, New Zealand',
+  areaServed: ['Nelson', 'Tasman'],
 };
 ---
 

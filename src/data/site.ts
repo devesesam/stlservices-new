@@ -8,6 +8,7 @@ export const site = {
   },
   email: 'redthompson53@gmail.com',
   location: 'Nelson, New Zealand',
+  area: 'Nelson and Tasman',
 };
 
 export const services = [

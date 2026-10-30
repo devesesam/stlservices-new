@@ -11,20 +11,20 @@ import { fitWidths, heroWidths } from '../data/images';
 import heroImage from '../assets/images/bigclearing01.jpg';
 import earthworksImage from '../assets/images/roading03.jpg';
 import forestryImage from '../assets/images/bigclearing04.jpg';
-import truckingImage from '../assets/images/transporting01.jpg';
+import truckingImage from '../assets/images/general07.jpg';
 import firewoodImage from '../assets/images/logsplitting07.jpg';
 import customImage from '../assets/images/treetopping03.jpg';
 import motocrossImage from '../assets/images/grading-raking01.jpg';
-import firewoodHighlightImage from '../assets/images/logsplitting01.jpg';
+import firewoodHighlightImage from '../assets/images/logsplitting06.jpg';
 import slip01 from '../assets/images/slip01.jpg';
 import slip02 from '../assets/images/slip02.jpg';
-import slip03 from '../assets/images/slip03.jpg';
+import slip04 from '../assets/images/slip04.jpg';
 
 const services = [
   {
     href: '/services/earthworks/',
     title: 'Earthworks',
-    description: 'Efficient earthworks services in Nelson. Proper land preparation with top machinery to shape and stabilize terrain.',
+    description: 'Site preparation, roading, drainage and land shaping with our own machinery.',
     image: earthworksImage,
     imageAlt: 'Excavator building forestry access road',
     delay: 'fade-in-delay-1'
@@ -32,7 +32,7 @@ const services = [
   {
     href: '/services/forestry/',
     title: 'Forestry',
-    description: 'Expert forest clearing and renovation, ensuring safe and tidy environments while maintaining ecosystem balance.',
+    description: 'Forest clearing, skid sites, landings and haul roads, left safe and tidy.',
     image: forestryImage,
     imageAlt: 'Large-scale forestry clearing operation',
     delay: 'fade-in-delay-2'
@@ -40,23 +40,23 @@ const services = [
   {
     href: '/services/trucking/',
     title: 'Trucking',
-    description: 'Reliable trucking for timber, gravel, and supplies. Timely delivery with minimal environmental disruption.',
+    description: `Cartage for timber, gravel, firewood and machinery around ${site.area}.`,
     image: truckingImage,
-    imageAlt: 'STL branded Volvo truck transporting CAT excavator',
+    imageAlt: 'CAT excavator loading a tipper truck',
     delay: 'fade-in-delay-3'
   },
   {
     href: '/services/firewood/',
     title: 'Firewood',
-    description: "High-quality firewood sourced from sustainable forestry operations in Nelson. Perfect for heating and cooking.",
+    description: 'Split firewood delivered to your door, in small loads or bulk for the season.',
     image: firewoodImage,
-    imageAlt: 'Premium quality split firewood',
+    imageAlt: 'Pile of split firewood',
     delay: 'fade-in-delay-1'
   },
   {
     href: '/services/custom-projects/',
     title: 'Custom Projects',
-    description: 'Specialised forestry tasks tailored to your needs — tree thinning, shearing, and more with the right tools and expertise.',
+    description: "Tree thinning, shearing, slip clearing and the jobs that don't fit a standard box.",
     image: customImage,
     imageAlt: 'Tree topping and custom forestry work',
     delay: 'fade-in-delay-2'
@@ -64,41 +64,38 @@ const services = [
   {
     href: '/services/motocross-tracks/',
     title: 'Motocross Tracks',
-    description: 'Design, build, and maintain superior motocross tracks. Safety and precision for an optimal riding experience.',
+    description: 'Tracks designed, built and maintained for private landowners and clubs.',
     image: motocrossImage,
-    imageAlt: 'Land grading and terrain shaping for track construction',
+    imageAlt: 'Land grading and terrain shaping',
     delay: 'fade-in-delay-3'
   }
 ];
 
 const galleryImages = [
-  { image: slip01, alt: 'Road slip with fallen trees blocking access', delay: 'fade-in-delay-1' },
-  { image: slip02, alt: 'Slip damage on hillside requiring clearing', delay: 'fade-in-delay-2' },
-  { image: slip03, alt: 'Road slip clearing and restoration work', delay: 'fade-in-delay-3' }
+  { image: slip01, alt: 'Road blocked by a slip with fallen trees', caption: 'A slip blocking a road', delay: 'fade-in-delay-1' },
+  { image: slip02, alt: 'Slip damage on a hillside', caption: 'Slip damage on the hillside', delay: 'fade-in-delay-2' },
+  { image: slip04, alt: 'Excavator loading a truck while clearing a slip from a road', caption: 'Clearing and carting away the spoil', delay: 'fade-in-delay-3' }
 ];
 ---
 
 <PageLayout
-  title="Steve Thompson Limited | Forestry Solutions Nelson, New Zealand"
-  description="Find reliable equipment for projects in Nelson. Browse Steve Thompson Limited's construction, landscaping, heavy machinery, and power tools for hire today!"
-  ogTitle="Steve Thompson Limited - Forestry Solutions Nelson NZ"
-  ogDescription="Your trusted partner in forestry solutions across New Zealand. Equipment hire, earthworks, trucking, and more."
+  title="Forestry, Earthworks & Firewood in Nelson | Steve Thompson Limited"
+  description={`Forestry roading, earthworks, trucking and firewood around ${site.area} from Steve Thompson Limited. Call Steve on ${site.phone.display}.`}
   currentPath="/"
 >
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <h1>Your Trusted Partner in Forestry Solutions Across New Zealand</h1>
-        <p>At Steve Thompson Limited, we are committed to supporting forestry projects with high-quality equipment, professional services, and a dedicated team that understands the unique demands of New Zealand's landscapes. Whether you're managing a large-scale forestry operation, creating accessways, or sourcing firewood, we offer an extensive range of forestry services and equipment tailored to help you achieve your project goals efficiently and safely.</p>
-        <p>Get in touch today to discover how Steve Thompson Limited can support your next forestry project with expertise you can trust.</p>
+        <h1>Forestry, earthworks and firewood across {site.area}</h1>
+        <p>Steve Thompson Limited builds forestry roads and skid sites, shapes land, carts timber and gravel, and delivers firewood. Talk to Steve directly about your job.</p>
         <div class="hero-actions">
-          <a href="/contact/" class="btn btn-primary btn-lg">Get In Touch</a>
-          <a href="#services" class="btn btn-outline-dark btn-lg">Our Services</a>
+          <a href="/contact/" class="btn btn-primary btn-lg">Get a quote</a>
+          <a href="#services" class="btn btn-outline-dark btn-lg">Our services</a>
         </div>
       </div>
       <div class="hero-image">
-        <Image src={heroImage} alt="Aerial view of CAT excavator working on forestry road in New Zealand" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 470px" loading="eager" fetchpriority="high" />
+        <Image src={heroImage} alt="Aerial view of a CAT excavator working on a forestry road" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 470px" loading="eager" fetchpriority="high" />
       </div>
     </div>
   </section>
@@ -108,7 +105,7 @@ const galleryImages = [
     <div class="container">
       <div class="section-header fade-in">
         <h2>Our Services</h2>
-        <p>Professional forestry and earthworks solutions across the Nelson region and beyond</p>
+        <p>Forestry and earthworks across {site.area}</p>
       </div>
 
       <div class="services-grid">
@@ -131,13 +128,13 @@ const galleryImages = [
     <div class="container">
       <div class="highlight-grid">
         <div class="highlight-content fade-in">
-          <h2>The Best Firewood in Nelson</h2>
-          <p>We provide high-quality firewood to keep your home warm through the cooler months. Our firewood is carefully selected and sourced from sustainable forestry operations in the Nelson region.</p>
-          <p>Whether you need a small load for your fireplace or a bulk delivery for the season, we've got you covered with competitive pricing and reliable delivery straight to your door.</p>
-          <a href="/services/firewood/" class="btn btn-outline-dark btn-lg">Learn More</a>
+          <h2>Firewood, delivered</h2>
+          <p>Split firewood sourced from forestry operations in the Nelson region, delivered to your door around {site.area}. Small loads or bulk for the whole season.</p>
+          <p>Prices change through the year, so call Steve or send a message for this season's prices.</p>
+          <a href="/services/firewood/" class="btn btn-outline-dark btn-lg">Firewood details</a>
         </div>
         <div class="highlight-image fade-in fade-in-delay-2">
-          <Image src={firewoodHighlightImage} alt="Excavator with splitter processing firewood from logs" width={960} widths={fitWidths(firewoodHighlightImage, [640, 960, 1280])} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" />
+          <Image src={firewoodHighlightImage} alt="Trailer load of split firewood in a cage" width={960} widths={fitWidths(firewoodHighlightImage, [640, 960, 1280])} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" />
         </div>
       </div>
     </div>
@@ -147,13 +144,13 @@ const galleryImages = [
   <section class="gallery-section" id="gallery">
     <div class="container">
       <div class="gallery-header fade-in">
-        <h2>Precision and Professionalism</h2>
-        <p>Clearing Road Slips</p>
+        <h2>Clearing road slips</h2>
+        <p>From a blocked road to a clear one</p>
       </div>
 
       <div class="gallery-grid">
         {galleryImages.map(item => (
-          <GalleryItem image={item.image} alt={item.alt} delayClass={item.delay} />
+          <GalleryItem image={item.image} alt={item.alt} caption={item.caption} delayClass={item.delay} />
         ))}
       </div>
     </div>
@@ -161,11 +158,7 @@ const galleryImages = [
 
   <!-- CTA Section -->
   <CTASection
-    title="Ready to Get Started?"
-    description="Contact Steve today to discuss your next project and get a free quote."
-    primaryText="Get a Quote"
-    primaryHref="/contact/"
-    secondaryText={`Call ${site.phone.display}`}
-    secondaryHref={site.phone.href}
+    title="Got a job in mind?"
+    description="Call Steve, or send a few details and we'll get back to you with a quote."
   />
 </PageLayout>

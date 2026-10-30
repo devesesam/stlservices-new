@@ -757,10 +757,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gallery-item {
+  margin: 0;
+}
+
+.gallery-item-image {
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 4/3;
-  position: relative;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--color-border);
 }
@@ -774,6 +777,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .gallery-item:hover img {
   transform: scale(1.05);
+}
+
+.gallery-item figcaption {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  opacity: 0.85;
 }
 
 /* ---- Contact Page ---- */
@@ -1156,6 +1165,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 16px;
+}
+
+.service-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .service-cta p {

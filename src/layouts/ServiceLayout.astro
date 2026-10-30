@@ -1,0 +1,85 @@
+---
+import PageLayout from './PageLayout.astro';
+import CTASection from '../components/CTASection.astro';
+import GalleryItem from '../components/GalleryItem.astro';
+import { Image } from 'astro:assets';
+import { fitWidths, heroWidths } from '../data/images';
+
+interface GalleryPhoto {
+  image: ImageMetadata;
+  alt: string;
+  caption: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  heading: string;
+  intro: string[];
+  image: ImageMetadata;
+  imageAlt: string;
+  detailsHeading: string;
+  detailsIntro: string;
+  items: string[];
+  closing?: string;
+  gallery?: { heading: string; photos: GalleryPhoto[] };
+  ctaTitle: string;
+  ctaDescription: string;
+}
+
+const {
+  title, description, slug, heading, intro, image, imageAlt,
+  detailsHeading, detailsIntro, items, closing, gallery, ctaTitle, ctaDescription,
+} = Astro.props;
+
+const quoteHref = `/contact/?service=${slug}`;
+const delays = ['fade-in-delay-1', 'fade-in-delay-2', 'fade-in-delay-3'];
+---
+
+<PageLayout title={title} description={description} currentPath={`/services/${slug}/`}>
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-hero-grid">
+        <div>
+          <h1>{heading}</h1>
+          {intro.map(paragraph => <p>{paragraph}</p>)}
+          <a href={quoteHref} class="btn btn-primary btn-lg">Get a quote</a>
+        </div>
+        <div class="service-hero-image">
+          <Image src={image} alt={imageAlt} width={960} widths={fitWidths(image, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-details section-light">
+    <div class="container">
+      <div class="service-details-content fade-in">
+        <h2>{detailsHeading}</h2>
+        <p>{detailsIntro}</p>
+        <ul>
+          {items.map(item => <li>{item}</li>)}
+        </ul>
+        {closing && <p>{closing}</p>}
+      </div>
+    </div>
+  </section>
+
+  {gallery && (
+    <section class="gallery-section">
+      <div class="container">
+        <div class="gallery-header fade-in">
+          <h2>{gallery.heading}</h2>
+        </div>
+        <div class="gallery-grid">
+          {gallery.photos.map((photo, i) => (
+            <GalleryItem image={photo.image} alt={photo.alt} caption={photo.caption} delayClass={delays[i % 3]} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CTASection title={ctaTitle} description={ctaDescription} primaryHref={quoteHref} />
+</PageLayout>

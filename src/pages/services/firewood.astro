@@ -1,60 +1,29 @@
 ---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
 import { site } from '../../data/site';
-import PageLayout from '../../layouts/PageLayout.astro';
-import CTASection from '../../components/CTASection.astro';
-import { Image } from 'astro:assets';
-import { fitWidths, heroWidths } from '../../data/images';
 import heroImage from '../../assets/images/logsplitting03.jpg';
 ---
 
-<PageLayout
-  title="Firewood Supply | Steve Thompson Limited"
-  description="High-quality firewood in Nelson from sustainable forestry operations. Delivery available. Keep your home warm with Steve Thompson Limited's premium firewood."
-  currentPath="/services/firewood"
->
-  <!-- Service Hero -->
-  <section class="service-hero">
-    <div class="container">
-      <div class="service-hero-grid">
-        <div>
-          <h1>Firewood</h1>
-          <p>We provide high-quality firewood to keep your home warm. Our firewood is carefully selected and sourced from sustainable forestry operations in Nelson. Perfect for heating and cooking.</p>
-          <p>Whether you need a small load for your fireplace or a bulk delivery for the season, we deliver straight to your door with competitive pricing.</p>
-          <a href="/contact/?service=firewood" class="btn btn-primary btn-lg">Order Firewood</a>
-        </div>
-        <div class="service-hero-image">
-          <Image src={heroImage} alt="Firewood processing and log splitting operation" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Details -->
-  <section class="service-details section-light">
-    <div class="container">
-      <div class="service-details-content fade-in">
-        <h2>Quality Firewood, Delivered</h2>
-        <p>Our firewood is sourced directly from our own forestry operations, ensuring high quality and sustainability. We offer a range of wood types and quantities to suit your needs.</p>
-        <ul>
-          <li>Seasoned hardwood and softwood available</li>
-          <li>Split and ready to burn</li>
-          <li>Small loads to bulk deliveries</li>
-          <li>Competitive pricing</li>
-          <li>Delivery across the Nelson and Tasman regions</li>
-          <li>Sustainably sourced from local forestry operations</li>
-        </ul>
-        <p>Don't wait until winter hits — order your firewood today and be prepared for the cooler months ahead.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <CTASection
-    title="Order Your Firewood Today"
-    description="Contact Steve to arrange your firewood delivery."
-    primaryText="Order Now"
-    primaryHref="/contact/?service=firewood"
-    secondaryText={`Call ${site.phone.display}`}
-    secondaryHref={site.phone.href}
-  />
-</PageLayout>
+<ServiceLayout
+  title="Firewood Delivery in Nelson | Steve Thompson Limited"
+  description={`Split firewood delivered around ${site.area}, in small loads or bulk. Call Steve Thompson Limited on ${site.phone.display} for this season's prices.`}
+  slug="firewood"
+  heading="Firewood"
+  intro={[
+    `Split firewood sourced from forestry operations in the Nelson region, delivered to your door around ${site.area}.`,
+    "Small loads or bulk for the season. Call or send a message for this season's prices and availability.",
+  ]}
+  image={heroImage}
+  imageAlt="Firewood being processed with a log splitter"
+  detailsHeading="Ordering firewood"
+  detailsIntro="Tell us how much you need and where it's going, and we'll sort out the delivery."
+  items={[
+    'Seasoned hardwood and softwood available',
+    'Split and ready to burn',
+    'Small loads to bulk deliveries',
+    `Delivery around ${site.area}`,
+  ]}
+  closing={`Prices change through the year, so call Steve on ${site.phone.display} or send a message and we'll let you know what's available. Ordering before winter means you're not caught short.`}
+  ctaTitle="Ready to order firewood?"
+  ctaDescription="Call Steve, or send a message with how much you need and where."
+/>

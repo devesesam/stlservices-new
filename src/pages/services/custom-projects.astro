@@ -1,62 +1,33 @@
 ---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
 import { site } from '../../data/site';
-import PageLayout from '../../layouts/PageLayout.astro';
-import CTASection from '../../components/CTASection.astro';
-import { Image } from 'astro:assets';
-import { fitWidths, heroWidths } from '../../data/images';
-import heroImage from '../../assets/images/thinning01.jpg';
+import heroImage from '../../assets/images/slip04.jpg';
 ---
 
-<PageLayout
-  title="Custom Projects | Steve Thompson Limited"
-  description="Specialised forestry tasks tailored to your needs. Tree thinning, shearing, and custom projects by Steve Thompson Limited in Nelson, New Zealand."
-  currentPath="/services/custom-projects"
->
-  <!-- Service Hero -->
-  <section class="service-hero">
-    <div class="container">
-      <div class="service-hero-grid">
-        <div>
-          <h1>Custom Projects</h1>
-          <p>We handle specialised forestry tasks tailored to your needs. Whether it's tree thinning, shearing, or any other specific project, our team in Nelson is equipped with the right tools and expertise.</p>
-          <p>No two projects are the same, and we pride ourselves on adapting our services to meet the unique requirements of each client and site.</p>
-          <a href="/contact/?service=custom-projects" class="btn btn-primary btn-lg">Discuss Your Project</a>
-        </div>
-        <div class="service-hero-image">
-          <Image src={heroImage} alt="Tree thinning and custom forestry project" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Details -->
-  <section class="service-details section-light">
-    <div class="container">
-      <div class="service-details-content fade-in">
-        <h2>Tailored to Your Needs</h2>
-        <p>Our custom projects service covers a broad range of specialised work that goes beyond standard earthworks and forestry. If you have a unique challenge, chances are we can help.</p>
-        <ul>
-          <li>Tree thinning and selective removal</li>
-          <li>Tree shearing operations</li>
-          <li>Vegetation management</li>
-          <li>Water table and drainage solutions</li>
-          <li>Accessway and track construction</li>
-          <li>Land clearing for development</li>
-          <li>Emergency response and road slip clearing</li>
-          <li>Environmental restoration projects</li>
-        </ul>
-        <p>Talk to Steve about your project and we'll put together a plan that works for your needs and budget.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <CTASection
-    title="Have a Unique Project in Mind?"
-    description="Let's discuss how we can make it happen."
-    primaryText="Get in Touch"
-    primaryHref="/contact/?service=custom-projects"
-    secondaryText={`Call ${site.phone.display}`}
-    secondaryHref={site.phone.href}
-  />
-</PageLayout>
+<ServiceLayout
+  title="Tree Thinning, Slip Clearing & Custom Jobs | Steve Thompson Limited"
+  description={`Tree thinning, tree shearing, slip clearing, drainage and other specialist jobs around ${site.area} from Steve Thompson Limited.`}
+  slug="custom-projects"
+  heading="Custom Projects"
+  intro={[
+    "Tree thinning, shearing, slip clearing and the jobs that don't fit a standard box.",
+    "Tell us what you're dealing with and we'll work out the right approach.",
+  ]}
+  image={heroImage}
+  imageAlt="Excavator loading a truck while clearing a slip from a road"
+  detailsHeading="The kind of jobs we take on"
+  detailsIntro="Work that goes beyond standard earthworks and forestry, matched to the site and the budget."
+  items={[
+    'Tree thinning and selective removal',
+    'Tree shearing',
+    'Vegetation management',
+    'Water tables and drainage',
+    'Accessway and track construction',
+    'Land clearing for development',
+    'Road slip clearing',
+    'Environmental restoration',
+  ]}
+  closing="Talk to Steve about your project and we'll put together a plan that works for your needs and budget."
+  ctaTitle="Got an unusual job?"
+  ctaDescription="Call Steve, or send a few details and we'll work out how to tackle it."
+/>

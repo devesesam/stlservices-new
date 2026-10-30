@@ -1,20 +1,18 @@
 ---
+import { site } from '../data/site';
+
 interface Props {
   title: string;
   description: string;
   primaryText?: string;
   primaryHref?: string;
-  secondaryText?: string;
-  secondaryHref?: string;
 }
 
 const {
   title,
   description,
-  primaryText = 'Get a Quote',
+  primaryText = 'Get a quote',
   primaryHref = '/contact/',
-  secondaryText,
-  secondaryHref
 } = Astro.props;
 ---
 
@@ -22,11 +20,9 @@ const {
   <div class="container fade-in">
     <h2>{title}</h2>
     <p>{description}</p>
-    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+    <div class="service-cta-actions">
       <a href={primaryHref} class="btn btn-primary btn-lg">{primaryText}</a>
-      {secondaryText && secondaryHref && (
-        <a href={secondaryHref} class="btn btn-outline btn-lg">{secondaryText}</a>
-      )}
+      <a href={site.phone.href} class="btn btn-outline btn-lg">Call Steve</a>
     </div>
   </div>
 </section>
