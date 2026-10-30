@@ -1,7 +1,9 @@
 ---
+import { site } from '../../data/site';
 import PageLayout from '../../layouts/PageLayout.astro';
 import CTASection from '../../components/CTASection.astro';
 import { Image } from 'astro:assets';
+import { fitWidths, heroWidths } from '../../data/images';
 import heroImage from '../../assets/images/logsplitting03.jpg';
 ---
 
@@ -14,14 +16,14 @@ import heroImage from '../../assets/images/logsplitting03.jpg';
   <section class="service-hero">
     <div class="container">
       <div class="service-hero-grid">
-        <div class="fade-in">
+        <div>
           <h1>Firewood</h1>
           <p>We provide high-quality firewood to keep your home warm. Our firewood is carefully selected and sourced from sustainable forestry operations in Nelson. Perfect for heating and cooking.</p>
           <p>Whether you need a small load for your fireplace or a bulk delivery for the season, we deliver straight to your door with competitive pricing.</p>
-          <a href="/contact" class="btn btn-primary btn-lg">Order Firewood</a>
+          <a href="/contact/" class="btn btn-primary btn-lg">Order Firewood</a>
         </div>
-        <div class="service-hero-image fade-in fade-in-delay-2">
-          <Image src={heroImage} alt="Firewood processing and log splitting operation" width={600} height={450} format="webp" />
+        <div class="service-hero-image">
+          <Image src={heroImage} alt="Firewood processing and log splitting operation" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
         </div>
       </div>
     </div>
@@ -51,8 +53,8 @@ import heroImage from '../../assets/images/logsplitting03.jpg';
     title="Order Your Firewood Today"
     description="Contact Steve to arrange your firewood delivery."
     primaryText="Order Now"
-    primaryHref="/contact"
-    secondaryText="Call 027 367 4569"
-    secondaryHref="tel:0273674569"
+    primaryHref="/contact/"
+    secondaryText={`Call ${site.phone.display}`}
+    secondaryHref={site.phone.href}
   />
 </PageLayout>

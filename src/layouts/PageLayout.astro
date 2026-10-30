@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import MobileCallBar from '../components/MobileCallBar.astro';
 
 interface Props {
   title: string;
@@ -18,4 +19,5 @@ const { title, description, ogTitle, ogDescription, currentPath = Astro.url.path
   <Navbar currentPath={currentPath} />
   <slot />
   <Footer />
+  <MobileCallBar />
 </BaseLayout>

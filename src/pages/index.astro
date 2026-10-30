@@ -1,9 +1,11 @@
 ---
+import { site } from '../data/site';
 import PageLayout from '../layouts/PageLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import GalleryItem from '../components/GalleryItem.astro';
 import CTASection from '../components/CTASection.astro';
 import { Image } from 'astro:assets';
+import { fitWidths, heroWidths } from '../data/images';
 
 // Import images
 import heroImage from '../assets/images/bigclearing01.jpg';
@@ -20,7 +22,7 @@ import slip03 from '../assets/images/slip03.jpg';
 
 const services = [
   {
-    href: '/services/earthworks',
+    href: '/services/earthworks/',
     title: 'Earthworks',
     description: 'Efficient earthworks services in Nelson. Proper land preparation with top machinery to shape and stabilize terrain.',
     image: earthworksImage,
@@ -28,7 +30,7 @@ const services = [
     delay: 'fade-in-delay-1'
   },
   {
-    href: '/services/forestry',
+    href: '/services/forestry/',
     title: 'Forestry',
     description: 'Expert forest clearing and renovation, ensuring safe and tidy environments while maintaining ecosystem balance.',
     image: forestryImage,
@@ -36,7 +38,7 @@ const services = [
     delay: 'fade-in-delay-2'
   },
   {
-    href: '/services/trucking',
+    href: '/services/trucking/',
     title: 'Trucking',
     description: 'Reliable trucking for timber, gravel, and supplies. Timely delivery with minimal environmental disruption.',
     image: truckingImage,
@@ -44,7 +46,7 @@ const services = [
     delay: 'fade-in-delay-3'
   },
   {
-    href: '/services/firewood',
+    href: '/services/firewood/',
     title: 'Firewood',
     description: "High-quality firewood sourced from sustainable forestry operations in Nelson. Perfect for heating and cooking.",
     image: firewoodImage,
@@ -52,7 +54,7 @@ const services = [
     delay: 'fade-in-delay-1'
   },
   {
-    href: '/services/custom-projects',
+    href: '/services/custom-projects/',
     title: 'Custom Projects',
     description: 'Specialised forestry tasks tailored to your needs — tree thinning, shearing, and more with the right tools and expertise.',
     image: customImage,
@@ -60,7 +62,7 @@ const services = [
     delay: 'fade-in-delay-2'
   },
   {
-    href: '/services/motocross-tracks',
+    href: '/services/motocross-tracks/',
     title: 'Motocross Tracks',
     description: 'Design, build, and maintain superior motocross tracks. Safety and precision for an optimal riding experience.',
     image: motocrossImage,
@@ -85,19 +87,19 @@ const galleryImages = [
 >
   <!-- Hero Section -->
   <section class="hero" id="hero">
-    <div class="container">
-      <div class="hero-content fade-in">
+    <div class="container hero-grid">
+      <div class="hero-content">
         <h1>Your Trusted Partner in Forestry Solutions Across New Zealand</h1>
         <p>At Steve Thompson Limited, we are committed to supporting forestry projects with high-quality equipment, professional services, and a dedicated team that understands the unique demands of New Zealand's landscapes. Whether you're managing a large-scale forestry operation, creating accessways, or sourcing firewood, we offer an extensive range of forestry services and equipment tailored to help you achieve your project goals efficiently and safely.</p>
         <p>Get in touch today to discover how Steve Thompson Limited can support your next forestry project with expertise you can trust.</p>
         <div class="hero-actions">
-          <a href="/contact" class="btn btn-primary btn-lg">Get In Touch</a>
+          <a href="/contact/" class="btn btn-primary btn-lg">Get In Touch</a>
           <a href="#services" class="btn btn-outline-dark btn-lg">Our Services</a>
         </div>
       </div>
-    </div>
-    <div class="hero-image">
-      <Image src={heroImage} alt="Aerial view of CAT excavator working on forestry road in New Zealand" width={800} height={600} format="webp" />
+      <div class="hero-image">
+        <Image src={heroImage} alt="Aerial view of CAT excavator working on forestry road in New Zealand" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 470px" loading="eager" fetchpriority="high" />
+      </div>
     </div>
   </section>
 
@@ -132,10 +134,10 @@ const galleryImages = [
           <h2>The Best Firewood in Nelson</h2>
           <p>We provide high-quality firewood to keep your home warm through the cooler months. Our firewood is carefully selected and sourced from sustainable forestry operations in the Nelson region.</p>
           <p>Whether you need a small load for your fireplace or a bulk delivery for the season, we've got you covered with competitive pricing and reliable delivery straight to your door.</p>
-          <a href="/services/firewood" class="btn btn-outline-dark btn-lg">Learn More</a>
+          <a href="/services/firewood/" class="btn btn-outline-dark btn-lg">Learn More</a>
         </div>
         <div class="highlight-image fade-in fade-in-delay-2">
-          <Image src={firewoodHighlightImage} alt="Excavator with splitter processing firewood from logs" width={600} height={450} format="webp" />
+          <Image src={firewoodHighlightImage} alt="Excavator with splitter processing firewood from logs" width={960} widths={fitWidths(firewoodHighlightImage, [640, 960, 1280])} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" />
         </div>
       </div>
     </div>
@@ -162,8 +164,8 @@ const galleryImages = [
     title="Ready to Get Started?"
     description="Contact Steve today to discuss your next project and get a free quote."
     primaryText="Get a Quote"
-    primaryHref="/contact"
-    secondaryText="Call 027 367 4569"
-    secondaryHref="tel:0273674569"
+    primaryHref="/contact/"
+    secondaryText={`Call ${site.phone.display}`}
+    secondaryHref={site.phone.href}
   />
 </PageLayout>

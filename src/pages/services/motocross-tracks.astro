@@ -1,7 +1,9 @@
 ---
+import { site } from '../../data/site';
 import PageLayout from '../../layouts/PageLayout.astro';
 import CTASection from '../../components/CTASection.astro';
 import { Image } from 'astro:assets';
+import { fitWidths, heroWidths } from '../../data/images';
 import heroImage from '../../assets/images/grading-raking03.jpg';
 ---
 
@@ -14,14 +16,14 @@ import heroImage from '../../assets/images/grading-raking03.jpg';
   <section class="service-hero">
     <div class="container">
       <div class="service-hero-grid">
-        <div class="fade-in">
+        <div>
           <h1>Motocross Tracks</h1>
           <p>We design, build, and maintain superior motocross tracks tailored to individual needs. Our team ensures each layout offers exciting features, focusing on safety and precision for an optimal riding experience.</p>
           <p>From backyard practice tracks to competition-grade circuits, Steve Thompson Limited has the earthmoving expertise to bring your vision to life.</p>
-          <a href="/contact" class="btn btn-primary btn-lg">Plan Your Track</a>
+          <a href="/contact/" class="btn btn-primary btn-lg">Plan Your Track</a>
         </div>
-        <div class="service-hero-image fade-in fade-in-delay-2">
-          <Image src={heroImage} alt="Land grading and terrain shaping for track construction" width={600} height={450} format="webp" />
+        <div class="service-hero-image">
+          <Image src={heroImage} alt="Land grading and terrain shaping for track construction" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
         </div>
       </div>
     </div>
@@ -52,8 +54,8 @@ import heroImage from '../../assets/images/grading-raking03.jpg';
     title="Ready to Build Your Dream Track?"
     description="Let's talk about your motocross track project."
     primaryText="Get in Touch"
-    primaryHref="/contact"
-    secondaryText="Call 027 367 4569"
-    secondaryHref="tel:0273674569"
+    primaryHref="/contact/"
+    secondaryText={`Call ${site.phone.display}`}
+    secondaryHref={site.phone.href}
   />
 </PageLayout>

@@ -1,8 +1,10 @@
 ---
+import { site } from '../data/site';
 import PageLayout from '../layouts/PageLayout.astro';
 import IconPhone from '../components/icons/IconPhone.astro';
 import IconEmail from '../components/icons/IconEmail.astro';
 import { Image } from 'astro:assets';
+import { fitWidths, heroWidths } from '../data/images';
 import contactImage from '../assets/images/general02.jpg';
 ---
 
@@ -17,7 +19,7 @@ import contactImage from '../assets/images/general02.jpg';
   <section class="contact-hero">
     <div class="container">
       <div class="contact-hero-grid">
-        <div class="fade-in">
+        <div>
           <h1>Steve Thompson Limited</h1>
           <h2>Get In Touch</h2>
           <p class="intro-text">Contact us now to find out about how our services can benefit your project.</p>
@@ -26,7 +28,7 @@ import contactImage from '../assets/images/general02.jpg';
             <IconPhone />
             <div>
               <div class="label">Call Steve</div>
-              <a href="tel:0273674569" class="value">027 367 4569</a>
+              <a href={site.phone.href} class="value">{site.phone.display}</a>
             </div>
           </div>
 
@@ -34,13 +36,13 @@ import contactImage from '../assets/images/general02.jpg';
             <IconEmail />
             <div>
               <div class="label">Email Steve</div>
-              <a href="mailto:redthompson53@gmail.com">redthompson53@gmail.com</a>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
             </div>
           </div>
         </div>
 
-        <div class="contact-hero-image fade-in fade-in-delay-2">
-          <Image src={contactImage} alt="CAT excavator at work on a forestry site in New Zealand" width={600} height={450} format="webp" />
+        <div class="contact-hero-image">
+          <Image src={contactImage} alt="CAT excavator at work on a forestry site in New Zealand" width={960} widths={fitWidths(contactImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
         </div>
       </div>
     </div>

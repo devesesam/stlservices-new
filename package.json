@@ -7,13 +7,16 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "qa": "node scripts/qa.mjs"
   },
   "dependencies": {
-    "astro": "^4.16.0",
-    "@astrojs/netlify": "^5.5.0"
+    "@astrojs/netlify": "^5.5.0",
+    "astro": "^4.16.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "playwright-core": "^1.48.2",
     "sharp": "^0.33.5"
   }
 }

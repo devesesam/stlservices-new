@@ -4,6 +4,7 @@ import IconPhone from './icons/IconPhone.astro';
 import IconEmail from './icons/IconEmail.astro';
 import IconLocation from './icons/IconLocation.astro';
 import IconFacebook from './icons/IconFacebook.astro';
+import { site, services } from '../data/site';
 ---
 
 <footer class="footer" id="footer">
@@ -12,7 +13,7 @@ import IconFacebook from './icons/IconFacebook.astro';
       <div>
         <div class="footer-logo">
           <Logo />
-          Steve Thompson Limited
+          {site.name}
         </div>
         <p class="footer-description">Your trusted partner in forestry solutions across New Zealand. Professional equipment, expert services, and a team that understands the demands of the landscape.</p>
       </div>
@@ -21,12 +22,9 @@ import IconFacebook from './icons/IconFacebook.astro';
         <h4>Quick Links</h4>
         <div class="footer-links">
           <a href="/">Home</a>
-          <a href="/services/earthworks">Earthworks</a>
-          <a href="/services/forestry">Forestry</a>
-          <a href="/services/trucking">Trucking</a>
-          <a href="/services/firewood">Firewood</a>
-          <a href="/fleet">Fleet</a>
-          <a href="/contact">Contact</a>
+          {services.map(service => <a href={service.href}>{service.label}</a>)}
+          <a href="/fleet/">Fleet</a>
+          <a href="/contact/">Contact</a>
         </div>
       </div>
 
@@ -34,15 +32,15 @@ import IconFacebook from './icons/IconFacebook.astro';
         <h4>Contact</h4>
         <div class="footer-contact-item">
           <IconPhone />
-          <a href="tel:0273674569">027 367 4569</a>
+          <a href={site.phone.href}>{site.phone.display}</a>
         </div>
         <div class="footer-contact-item">
           <IconEmail />
-          <a href="mailto:redthompson53@gmail.com">redthompson53@gmail.com</a>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
         </div>
         <div class="footer-contact-item">
           <IconLocation />
-          <span>Nelson, New Zealand</span>
+          <span>{site.location}</span>
         </div>
       </div>
     </div>
