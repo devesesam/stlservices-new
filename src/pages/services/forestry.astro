@@ -20,7 +20,7 @@ import heroImage from '../../assets/images/bigclearing02.jpg';
           <h1>Forestry</h1>
           <p>Our team clears and renovates forest areas efficiently, ensuring safe and tidy environments. We handle debris and maintain balance in ecosystems with our expert approach to forestry management.</p>
           <p>From large-scale harvesting support to selective thinning and environmental restoration, we bring the right expertise and equipment to every forestry operation.</p>
-          <a href="/contact/" class="btn btn-primary btn-lg">Get a Quote</a>
+          <a href="/contact/?service=forestry" class="btn btn-primary btn-lg">Get a Quote</a>
         </div>
         <div class="service-hero-image">
           <Image src={heroImage} alt="Large-scale forestry clearing operation in New Zealand" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
@@ -54,7 +54,7 @@ import heroImage from '../../assets/images/bigclearing02.jpg';
     title="Need Forestry Services?"
     description="Contact Steve today to discuss your forestry project requirements."
     primaryText="Get a Quote"
-    primaryHref="/contact/"
+    primaryHref="/contact/?service=forestry"
     secondaryText={`Call ${site.phone.display}`}
     secondaryHref={site.phone.href}
   />

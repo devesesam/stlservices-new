@@ -20,7 +20,7 @@ import heroImage from '../../assets/images/logsplitting03.jpg';
           <h1>Firewood</h1>
           <p>We provide high-quality firewood to keep your home warm. Our firewood is carefully selected and sourced from sustainable forestry operations in Nelson. Perfect for heating and cooking.</p>
           <p>Whether you need a small load for your fireplace or a bulk delivery for the season, we deliver straight to your door with competitive pricing.</p>
-          <a href="/contact/" class="btn btn-primary btn-lg">Order Firewood</a>
+          <a href="/contact/?service=firewood" class="btn btn-primary btn-lg">Order Firewood</a>
         </div>
         <div class="service-hero-image">
           <Image src={heroImage} alt="Firewood processing and log splitting operation" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
@@ -53,7 +53,7 @@ import heroImage from '../../assets/images/logsplitting03.jpg';
     title="Order Your Firewood Today"
     description="Contact Steve to arrange your firewood delivery."
     primaryText="Order Now"
-    primaryHref="/contact/"
+    primaryHref="/contact/?service=firewood"
     secondaryText={`Call ${site.phone.display}`}
     secondaryHref={site.phone.href}
   />

@@ -3,7 +3,6 @@ import Logo from './icons/Logo.astro';
 import IconPhone from './icons/IconPhone.astro';
 import IconEmail from './icons/IconEmail.astro';
 import IconLocation from './icons/IconLocation.astro';
-import IconFacebook from './icons/IconFacebook.astro';
 import { site, services } from '../data/site';
 ---
 
@@ -19,7 +18,7 @@ import { site, services } from '../data/site';
       </div>
 
       <div>
-        <h4>Quick Links</h4>
+        <p class="footer-heading">Quick Links</p>
         <div class="footer-links">
           <a href="/">Home</a>
           {services.map(service => <a href={service.href}>{service.label}</a>)}
@@ -29,7 +28,7 @@ import { site, services } from '../data/site';
       </div>
 
       <div>
-        <h4>Contact</h4>
+        <p class="footer-heading">Contact</p>
         <div class="footer-contact-item">
           <IconPhone />
           <a href={site.phone.href}>{site.phone.display}</a>
@@ -46,12 +45,7 @@ import { site, services } from '../data/site';
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; 2026 Steve Thompson Limited. All rights reserved.</span>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook">
-          <IconFacebook />
-        </a>
-      </div>
+      <span>&copy; {new Date().getFullYear()} {site.name}. All rights reserved.</span>
     </div>
   </div>
 </footer>

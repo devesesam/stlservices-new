@@ -20,7 +20,7 @@ import heroImage from '../../assets/images/transporting02.jpg';
           <h1>Trucking</h1>
           <p>We provide reliable and efficient trucking services for timber and gravel transport, as well as many other supplies. Our skilled team ensures timely delivery with minimal disruption to the natural environment.</p>
           <p>Whether you need a one-off delivery or ongoing transport solutions, we've got the capability to keep your projects moving on schedule.</p>
-          <a href="/contact/" class="btn btn-primary btn-lg">Get a Quote</a>
+          <a href="/contact/?service=trucking" class="btn btn-primary btn-lg">Get a Quote</a>
         </div>
         <div class="service-hero-image">
           <Image src={heroImage} alt="STL trucking and heavy equipment transport" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
@@ -53,7 +53,7 @@ import heroImage from '../../assets/images/transporting02.jpg';
     title="Need Transport Solutions?"
     description="Get in touch to arrange reliable trucking for your next project."
     primaryText="Get a Quote"
-    primaryHref="/contact/"
+    primaryHref="/contact/?service=trucking"
     secondaryText={`Call ${site.phone.display}`}
     secondaryHref={site.phone.href}
   />

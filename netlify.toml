@@ -2,10 +2,68 @@
   command = "npm run build"
   publish = "dist"
 
+# Send www traffic straight to the apex domain in one hop.
+[[redirects]]
+  from = "http://www.stlservices.co.nz/*"
+  to = "https://stlservices.co.nz/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/services"
   to = "/#services"
   status = 302
+
+# Addresses from the previous site, sent to the nearest current page.
+[[redirects]]
+  from = "/forest-roading"
+  to = "/services/forestry/"
+  status = 301
+
+[[redirects]]
+  from = "/grading-and-raking"
+  to = "/services/earthworks/"
+  status = 301
+
+[[redirects]]
+  from = "/heavy-machinery-transportation"
+  to = "/services/trucking/"
+  status = 301
+
+[[redirects]]
+  from = "/log-splitting-and-firewood"
+  to = "/services/firewood/"
+  status = 301
+
+[[redirects]]
+  from = "/tree-thinning"
+  to = "/services/custom-projects/"
+  status = 301
+
+[[redirects]]
+  from = "/tree-topping"
+  to = "/services/custom-projects/"
+  status = 301
+
+[[redirects]]
+  from = "/contact-form"
+  to = "/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/testimonials"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/posts"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301
 
 [[headers]]
   for = "/*"
@@ -13,6 +71,10 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    # Google Fonts stays allowed until fonts are self-hosted in the rebrand.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
 
 [[headers]]
   for = "/_astro/*"

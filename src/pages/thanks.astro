@@ -1,0 +1,22 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { site } from '../data/site';
+---
+
+<PageLayout
+  title="Message sent | Steve Thompson Limited"
+  description="Thanks for getting in touch with Steve Thompson Limited."
+  currentPath="/thanks/"
+  noindex
+>
+  <section class="service-hero simple-page">
+    <div class="container">
+      <h1>Thanks, your message is on its way</h1>
+      <p>We'll be in touch soon. If the job is urgent, give Steve a call.</p>
+      <div class="simple-page-actions">
+        <a href={site.phone.href} class="btn btn-primary btn-lg">Call {site.phone.display}</a>
+        <a href="/" class="btn btn-outline btn-lg">Back to home</a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

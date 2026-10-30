@@ -1,33 +1,65 @@
 ---
 import '../styles/global.css';
+import { getImage } from 'astro:assets';
+import { site } from '../data/site';
+import defaultOgImage from '../assets/images/bigclearing01.jpg';
 
 interface Props {
   title: string;
   description?: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogImage?: ImageMetadata;
+  noindex?: boolean;
 }
 
 const {
   title,
   description = "Find reliable equipment for projects in Nelson. Browse Steve Thompson Limited's construction, landscaping, heavy machinery, and power tools for hire today!",
-  ogTitle,
-  ogDescription
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = defaultOgImage,
+  noindex = false,
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const shareImage = await getImage({ src: ogImage, width: 1200, format: 'jpg' });
+const shareImageUrl = new URL(shareImage.src, Astro.site);
+
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'GeneralContractor',
+  name: site.name,
+  url: site.url,
+  telephone: site.phone.href.replace('tel:', ''),
+  email: site.email,
+  image: shareImageUrl.href,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Nelson',
+    addressCountry: 'NZ',
+  },
+  areaServed: 'Nelson, New Zealand',
+};
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script is:inline>document.documentElement.classList.add('js');</script>
   <title>{title}</title>
   <meta name="description" content={description}>
-  {ogTitle && <meta property="og:title" content={ogTitle}>}
-  {ogDescription && <meta property="og:description" content={ogDescription}>}
+  {noindex ? <meta name="robots" content="noindex"> : <link rel="canonical" href={canonical}>}
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://stlservices.co.nz">
+  <meta property="og:site_name" content={site.name}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:title" content={ogTitle}>
+  <meta property="og:description" content={ogDescription}>
+  <meta property="og:image" content={shareImageUrl}>
+  <meta name="twitter:card" content="summary_large_image">
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(business)} />
 </head>
 <body>
   <slot />

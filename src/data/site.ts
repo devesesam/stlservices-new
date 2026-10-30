@@ -11,10 +11,10 @@ export const site = {
 };
 
 export const services = [
-  { href: '/services/earthworks/', label: 'Earthworks' },
-  { href: '/services/forestry/', label: 'Forestry' },
-  { href: '/services/trucking/', label: 'Trucking' },
-  { href: '/services/firewood/', label: 'Firewood' },
-  { href: '/services/custom-projects/', label: 'Custom Projects' },
-  { href: '/services/motocross-tracks/', label: 'Motocross Tracks' },
+  { slug: 'earthworks', href: '/services/earthworks/', label: 'Earthworks' },
+  { slug: 'forestry', href: '/services/forestry/', label: 'Forestry' },
+  { slug: 'trucking', href: '/services/trucking/', label: 'Trucking' },
+  { slug: 'firewood', href: '/services/firewood/', label: 'Firewood' },
+  { slug: 'custom-projects', href: '/services/custom-projects/', label: 'Custom Projects' },
+  { slug: 'motocross-tracks', href: '/services/motocross-tracks/', label: 'Motocross Tracks' },
 ];

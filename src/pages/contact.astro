@@ -1,5 +1,5 @@
 ---
-import { site } from '../data/site';
+import { site, services } from '../data/site';
 import PageLayout from '../layouts/PageLayout.astro';
 import IconPhone from '../components/icons/IconPhone.astro';
 import IconEmail from '../components/icons/IconEmail.astro';
@@ -13,15 +13,15 @@ import contactImage from '../assets/images/general02.jpg';
   description="Steve Thompson Limited offers expert forestry cleanup, roading, tree thinning, tree shearing, water tables, and machinery hire services across New Zealand."
   ogTitle="Contact Steve Thompson Limited"
   ogDescription="Get in touch with Steve Thompson Limited for forestry services, equipment hire, and more in Nelson, New Zealand."
-  currentPath="/contact"
+  currentPath="/contact/"
 >
   <!-- Contact Hero -->
   <section class="contact-hero">
     <div class="container">
       <div class="contact-hero-grid">
         <div>
-          <h1>Steve Thompson Limited</h1>
-          <h2>Get In Touch</h2>
+          <p class="contact-company">{site.name}</p>
+          <h1>Get In Touch</h1>
           <p class="intro-text">Contact us now to find out about how our services can benefit your project.</p>
 
           <div class="contact-info-item">
@@ -53,26 +53,51 @@ import contactImage from '../assets/images/general02.jpg';
     <div class="container">
       <div class="contact-form-wrapper fade-in">
         <h2>Reach Out Today</h2>
-        <p class="form-intro">Use the contact form to get in touch. We are here to help with your equipment and machinery hiring needs.</p>
+        <p class="form-intro">Tell us a bit about the job and we'll get back to you.</p>
 
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form name="contact" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact">
-          <p style="display: none;">
-            <label>Don't fill this out: <input name="bot-field"></label>
+          <p hidden>
+            <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
           </p>
           <div class="form-row">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
+              <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Your email" required>
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Your phone number" autocomplete="tel">
             </div>
           </div>
           <div class="form-group">
-            <label for="phone">Phone (optional)</label>
-            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email" autocomplete="email" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">What do you need?</label>
+              <select id="service" name="service">
+                <option value="">Choose a service</option>
+                {services.map(service => <option value={service.label} data-slug={service.slug}>{service.label}</option>)}
+                <option value="Machinery hire">Machinery hire</option>
+                <option value="Something else">Something else</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="location">Where is the job?</label>
+              <input type="text" id="location" name="location" placeholder="Town or address" autocomplete="address-level2">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="timeframe">When do you need it done?</label>
+            <select id="timeframe" name="timeframe">
+              <option value="">Choose a timeframe</option>
+              <option>As soon as possible</option>
+              <option>Within a month</option>
+              <option>In the next few months</option>
+              <option>Just getting a price</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="message">Message</label>
@@ -80,9 +105,18 @@ import contactImage from '../assets/images/general02.jpg';
           </div>
           <div class="form-submit">
             <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+            <p class="form-privacy">We only use your details to reply to you and quote your job. We don't share them with anyone, and you can ask us to delete them at any time.</p>
           </div>
         </form>
       </div>
     </div>
   </section>
 </PageLayout>
+
+<script>
+  // Pre-select the service when arriving from a service page (?service=firewood).
+  const slug = new URLSearchParams(window.location.search).get('service');
+  const select = document.querySelector<HTMLSelectElement>('#service');
+  const option = slug && select?.querySelector<HTMLOptionElement>(`option[data-slug="${CSS.escape(slug)}"]`);
+  if (select && option) select.value = option.value;
+</script>

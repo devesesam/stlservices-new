@@ -9,15 +9,20 @@ interface Props {
   description?: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogImage?: ImageMetadata;
+  noindex?: boolean;
   currentPath?: string;
 }
 
-const { title, description, ogTitle, ogDescription, currentPath = Astro.url.pathname } = Astro.props;
+const { title, description, ogTitle, ogDescription, ogImage, noindex, currentPath = Astro.url.pathname } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription}>
+<BaseLayout title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} ogImage={ogImage} noindex={noindex}>
+  <a href="#main" class="skip-link">Skip to content</a>
   <Navbar currentPath={currentPath} />
-  <slot />
+  <main id="main">
+    <slot />
+  </main>
   <Footer />
   <MobileCallBar />
 </BaseLayout>

@@ -1,0 +1,26 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { site, services } from '../data/site';
+---
+
+<PageLayout
+  title="Page not found | Steve Thompson Limited"
+  description="That page doesn't exist. Find our services or get in touch with Steve Thompson Limited."
+  currentPath="/404/"
+  noindex
+>
+  <section class="service-hero simple-page">
+    <div class="container">
+      <h1>Page not found</h1>
+      <p>That page has moved or no longer exists. Try one of our services below, or give Steve a call.</p>
+      <ul class="simple-page-links">
+        {services.map(service => <li><a href={service.href}>{service.label}</a></li>)}
+        <li><a href="/fleet/">Fleet</a></li>
+      </ul>
+      <div class="simple-page-actions">
+        <a href={site.phone.href} class="btn btn-primary btn-lg">Call {site.phone.display}</a>
+        <a href="/" class="btn btn-outline btn-lg">Back to home</a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

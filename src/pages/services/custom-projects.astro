@@ -20,7 +20,7 @@ import heroImage from '../../assets/images/thinning01.jpg';
           <h1>Custom Projects</h1>
           <p>We handle specialised forestry tasks tailored to your needs. Whether it's tree thinning, shearing, or any other specific project, our team in Nelson is equipped with the right tools and expertise.</p>
           <p>No two projects are the same, and we pride ourselves on adapting our services to meet the unique requirements of each client and site.</p>
-          <a href="/contact/" class="btn btn-primary btn-lg">Discuss Your Project</a>
+          <a href="/contact/?service=custom-projects" class="btn btn-primary btn-lg">Discuss Your Project</a>
         </div>
         <div class="service-hero-image">
           <Image src={heroImage} alt="Tree thinning and custom forestry project" width={960} widths={fitWidths(heroImage, heroWidths)} quality={70} format="webp" sizes="(max-width: 1024px) calc(100vw - 48px), 546px" loading="eager" fetchpriority="high" />
@@ -55,7 +55,7 @@ import heroImage from '../../assets/images/thinning01.jpg';
     title="Have a Unique Project in Mind?"
     description="Let's discuss how we can make it happen."
     primaryText="Get in Touch"
-    primaryHref="/contact/"
+    primaryHref="/contact/?service=custom-projects"
     secondaryText={`Call ${site.phone.display}`}
     secondaryHref={site.phone.href}
   />

@@ -11,6 +11,7 @@ const PAGES = [
   '/', '/fleet/', '/contact/',
   '/services/earthworks/', '/services/forestry/', '/services/trucking/',
   '/services/firewood/', '/services/custom-projects/', '/services/motocross-tracks/',
+  '/thanks/', '/404/',
 ];
 const VIEWPORTS = [
   [320, 640, 3], [360, 800, 3], [390, 844, 3], [430, 932, 3],
